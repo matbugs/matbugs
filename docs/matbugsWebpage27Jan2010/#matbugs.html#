@@ -1,0 +1,77 @@
+<title>MATBUGS: a matlab interface to WinBUGS</title>
+<h1>MATBUGS: a matlab interface to WinBUGS</h1>
+
+MATBUGS
+is a Matlab interface for
+<a
+href="http://www.mrc-bsu.cam.ac.uk/bugs/winbugs/contents.shtml">WinBugs</a>
+and
+<a href="http://www.math.helsinki.fi/openbugs/Home.html">OpenBugs</a>,
+whichprogram for Gibbs sampling applied to hierarchical Bayesian models.
+<p>
+
+Written by Kevin Murphy and Maryam Mahdaviani, August 2005.
+<a href="changelog.html">Changelog</a>
+
+<p>
+<b>Download</b>
+<a href="matbugs.zip">matbugs.zip</a>
+which contains the main file, <a href="matbugs.m">matbugs.m</a>
+(which is the only file  you really need),
+<br>
+as well as some <b>demos</b>:
+<ul>
+<li> <a href="schools_writeup/schools_writeup.html">schools</a>
+<li> <a href="birats_writeup.html">birats</a>
+</ul>
+To use openbugs, use
+<pre>
+[samples, stats] = matbugs(dataStruct, bugsModelFilename, 'openbugs', 1);
+</pre>
+<p>
+Matbugs  automatically generates
+the script file from the model (e.g., see <a href="script.txt">this
+example script file</a>), 
+calls WinBUGS, reads in the results (using
+<a href="http://www.lce.hut.fi/research/compinf/bugsmatlab/">bugs2mat</a>),
+and then performs simple convergence diagnostics.
+Thus it provides complete functionality,
+very similar to
+<a href="http://cran.r-project.org/src/contrib/Descriptions/R2WinBUGS.html">
+R2WinBUGS</a>
+(see also 
+<a href="http://www.jstatsoft.org/v12/i03/v12i03.pdf">this article</a>
+and
+<a href="http://www.stat.columbia.edu/~gelman/bugsR">Gelman's page</a>).
+<p>
+Note that Matbugs needs write access to the following directory:
+<tt>C:\Program Files\Winbugs14\</tt>.
+This is because Winbugs expects its script file to live there.
+This means you have to have root privileges to run WinBUGS.
+(If you know of a workaround to this, please let me know!)
+
+<h2>Hints and tips</h2>
+  
+<ul>
+<li> If you get an <b>incompatible copy</b> error from Winbugs,
+click <a href="orhan.txt">here</a> for a possible fix.
+(This problem may arise if there's a variable in the model file that isn't
+defined.)
+
+<p>
+<li>If you get this error
+<pre>
+error in ==> matbugs at 259
+dos(str); % DOS wants a\b
+</pre>
+it is because winbugs created an error message
+and then you pressed ctrl-c in matlab.
+Use matbugs(..., 'view', 1) to see the
+winbugs error message.
+
+<p>
+<li>Matbugs creates a directory called 'tmp' in matlab's current working
+directory.
+The output of winbugs is stored in a file called 'log.txt' in the
+'tmp' directory.
+</ul>

@@ -1,0 +1,20 @@
+<ul>
+<li> Modified for vector-valued parameters by Alfred Pang, December 2005.
+
+<li> Modified for
+
+by Tomo Eguchim, March 2006
+
+<li> Modified for DIC by Andrew Jackson, April 2006 
+
+<li> Modified for multi-dimensional arrays by 
+Wilson Truccolo-Filho, April 2006.
+
+<li> Bug fix by Sohrab Shah (for winbugs filename), November 2006.
+
+<li> Kevin Murphy improved the online documentation/ demos, October
+2007.
+
+<li> 5 Feb 08: Brani Vidakovic made the autoclose work with openbugs,
+ fprintf(fid, 'modelQuit("y")\n');
+</ul>

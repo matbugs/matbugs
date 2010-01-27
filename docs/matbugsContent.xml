@@ -3,7 +3,7 @@
   <ModulePrefs title="hello world example" /> 
   <Content type="html">
      <![CDATA[ 
-       <iframe src ="http://matbugs.googlecode.com/svn/trunk/docs/matbugs.html" width="100%" height="100%" frameborder="0"></iframe>
+       <iframe src ="http://matbugs.googlecode.com/svn/trunk/docs/matbugs.html" width="100%" height="400" frameborder="0"></iframe>
      ]]>
   </Content> 
 </Module>

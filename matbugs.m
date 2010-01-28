@@ -81,7 +81,7 @@ function [samples, stats, structArray] = matbugs(dataStruct, bugsModel, varargin
 %     [S,stats] = matbugs(data, 'schools_model.txt', 'nSamples', 10000, ...
 %                          'monitorParams', {'mu_theta', 'theta'}, ...
 %                          'init', initStruct, 'nchains', 3, 'DICstatus',1)
-%
+
 % Written by Maryam Mahdaviani (maryam@cs.ubc.ca)
 % and Kevin Murphy (murphyk@cs.ubc.ca), August 2005
 % Modified for OpenBUGS by Tomo Eguchi 23 March 2006
@@ -89,6 +89,7 @@ function [samples, stats, structArray] = matbugs(dataStruct, bugsModel, varargin
 % Modified for winbugs filename by  Sohrab Shah 28 Nov 2006
 % Bug fix 7 Mar 08 Woojae Kim clear valTransp
 % Added support for Unix/Wine 24 Dec 09 Misha Koshelev <mk144210@bcm.edu>
+% Moved to http://code.google.com/p/matbugs/ 28 Jan 2010
 
 [openBUGS, junk] =  process_options(varargin, 'openBUGS', 0);
 

@@ -23,7 +23,7 @@ distribution, with mean of mu.beta, and covariance R. tauC models the
 measurement precision. The model is specified in birats_model.txt,
 shown below.</p><p>
 
-<img src="birats_writeup_files/birats_model.png" alt="birats model"></p><p>
+<img src="birats_model.png" alt="birats model"></p><p>
 </p><pre>model
 	{
 		for( i in 1 : N ) {
@@ -193,7 +193,7 @@ end
 title('mu beta(1)');
 </pre>
 <p>
-<img src="birats_writeup_files/samples_plot.png" alt="samples"></p><p>
+<img src="samples_plot.png" alt="samples"></p><p>
 
 A more interesting thing would be to plot the predicted response for the rats  to see how
 well the values fit against the observed values. One advantage of using MatBugs
@@ -226,7 +226,7 @@ xlabel('age')
 ylabel('weight')
 </pre>
 
-<img src="birats_writeup_files/regression_plot.png" alt="rats"></p><p>
+<img src="regression_plot.png" alt="rats"></p><p>
 
 The red crosses are the observed weights of the rats. The dotted green lines
 are the predicted weights  for each of the rats (using beta[i,:]).

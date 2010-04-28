@@ -38,3 +38,6 @@ end
 		'thin', 1, 'nChains', Nchains, ...
 		'monitorParams', {'beta'}, ...
 		'Bugdir', 'C:/Program Files/WinBUGS14');
+
+    
+end

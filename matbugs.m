@@ -316,7 +316,7 @@ if nChains == 1
 end
 
 %%%%%%%%%%%%%
-
+end
 function dataGen(dataStruct, fileName)
 % This is a helper function to generate data or init files for winBUGS
 % Inputs:
@@ -426,7 +426,7 @@ end
 fclose(fid);
 
 %%%%%%%%
-
+end
 function s = wb_strval(v)
 % Converts numeric value to a string that is acceptable by winbugs.
 % This is most problematic for exponent values which must have at least 1
@@ -442,7 +442,7 @@ if strfind(s, 'E')
 end
 
 %%%%%%%%
-
+end
 function f = fullfileKPM(varargin)
 % fullfileKPM Concatenate strings with file separator, then convert it to a/b/c
 % function f = fullfileKPM(varargin)
@@ -451,7 +451,7 @@ f = fullfile(varargin{:});
 f = strrep(f, '\', '/');
 
 %%%%%%%%
-
+end
 function A = structsToArrays(S)
 % Suppose S is this struct array
 %
@@ -486,7 +486,7 @@ for fi=1:length(fld)
   A = setfield(A, fname, data);
 end
   
- 
+end
 %%%%%%%%%%%%
 
 function [Rhat, m, s] = EPSR(samples)
@@ -525,7 +525,7 @@ m = meanOverall;
 s = std(samples(:));
 
 %%%%%%%%%
-
+end
 function stats = computeStats(A)
 
 fld = fieldnames(A);
@@ -579,7 +579,7 @@ for fi=1:length(fld)
   
   stats.std = setfield(stats.std, fname, squeeze(st_std_overall));
 end
-
+end
 %%%%%%%%%%%%
 % Andrew Jackson - function getDICstats added a.jackson@tcd.ie
 % Used to retrieve the DIC statistics from the log file
@@ -705,7 +705,7 @@ for k=1:Nvars
   end
   eval(['S.' outstruct '=samples;']);
 end
-
+end
 function T=readfile(filename)
 f=fopen(filename,'r');
 if f==-1, fclose(f); error(filename); end
@@ -781,7 +781,7 @@ fclose(f);
 
 % Copyright (C) 2002 Mark A. Paskin
 % GNU GPL
-
+end
 function [varargout] = process_options(args, varargin)
 
 % Check the number of input arguments
@@ -838,4 +838,5 @@ if (~warn)
     varargout{nout} = cell(0);
   end
 end
-
+end
+end

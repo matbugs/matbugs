@@ -19,3 +19,5 @@ W = sum(stwo_i)/m;
 V = ((W.*(n-1))./n)+(B./n);
 R = V/W;
 EPSR = R.^0.5;
+
+end

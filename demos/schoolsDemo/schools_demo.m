@@ -19,20 +19,23 @@ for i=1:Nchains
   initStructs(i) = S;
 end
 
+bugsFolder = 'C:\kmurphy\Programs\WinBUGS14';
 [samples, stats] = matbugs(dataStruct, ...
 		fullfile(pwd, 'schools_model.txt'), ...
 		'init', initStructs, ...
 		'view', 0, 'nburnin', 1000, 'nsamples', 500, ...
 		'thin', 10, ...
 		'monitorParams', {'theta', 'mu_theta', 'sigma_theta'}, ...
-		'Bugdir', 'C:/Program Files/WinBUGS14');
+		'Bugdir', bugsFolder);
 
-
+fprintf('Rhat\n');
 stats.Rhat
+
+fprintf('means\n');
 stats.mean
 
 % Traceplots
-figure(1);clf
+figure;
 colors = 'rgb';
 for j=1:8
   subplot(3,3,j); hold on
@@ -49,7 +52,7 @@ end
 title(sprintf('mu.theta'))
 
 % Posterior summaries - kernel density estimation
-figure(1); clf
+figure;
 for j=1:8
   subplot(3,3,j); hold on
   %dat = samples.theta(:,:,j);
@@ -67,7 +70,7 @@ end
 title(sprintf('mu.theta'))
 
 % Posterior summaries - intervals
-figure(1); clf
+figure;
 hold on
 for j=1:8
   for c=1:Nchains

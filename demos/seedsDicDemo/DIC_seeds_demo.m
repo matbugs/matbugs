@@ -67,10 +67,14 @@ N = 21;
 % winbugs:
 burn = 1000; % number of iterations for burn in
 samp = 2000; % number of iterations to collect data
+bugsFolder = 'C:\kmurphy\Programs\WinBUGS14';
+%bugsFolder = 'C:/Program Files/WinBUGS14';
 
+%{
 % run the model using only the seed type as a factor
 dataseed = struct('r',r,'n',n,'x1',x1,'N',N);
 init1 = struct('alpha0',0,'alpha1',0,'sigma',1);
+
 
 [x1samples, x1stats] = matbugs(dataseed, ...
 		fullfile(pwd, 'seeds_x1.txt'), ...
@@ -79,7 +83,7 @@ init1 = struct('alpha0',0,'alpha1',0,'sigma',1);
 		'view', 0, 'nburnin', burn, 'nsamples', samp, ...
 		'thin', 1, 'DICstatus', 1, ...
         'monitorParams', {'alpha0', 'alpha1', 'sigma'}, ...
-		'Bugdir', 'C:/Program Files/WinBUGS14');
+		'Bugdir', bugsFolder);
     
         
 % run the model using only the root extract type as a factor
@@ -93,7 +97,7 @@ init1 = struct('alpha0',0,'alpha2',0,'sigma',1);
 		'view', 0, 'nburnin', burn, 'nsamples', samp, ...
 		'thin', 1, 'DICstatus', 1, ...
         'monitorParams', {'alpha0','alpha2','sigma'}, ...
-		'Bugdir', 'C:/Program Files/WinBUGS14');
+		'Bugdir', bugsFolder);
     
 % run the model using both seed and root extract type as factors
 % but with no covariate term.
@@ -107,8 +111,9 @@ init1 = struct('alpha0',0,'alpha1',0,'alpha2',0,'sigma',1);
 		'view', 0, 'nburnin', burn, 'nsamples', samp, ...
 		'thin', 1, 'DICstatus', 1, ...
         'monitorParams', {'alpha0','alpha1','alpha2','sigma'}, ...
-		'Bugdir', 'C:/Program Files/WinBUGS14');
+		'Bugdir', bugsFolder);
     
+%}
 % run the model using both seed and root extract type as factors
 % as in the example in Winbugs
 dataseed = struct('r',r,'n',n,'x1',x1,'x2',x2,'N',N);
@@ -121,16 +126,17 @@ init1 = struct('alpha0',0,'alpha1',0,'alpha2',0,'alpha12',0,'sigma',1);
 		'view', 0, 'nburnin', burn, 'nsamples', samp, ...
 		'thin', 1, 'DICstatus', 1, ...
         'monitorParams', {'alpha0','alpha1','alpha2','alpha12','sigma'}, ...
-		'Bugdir', 'C:/Program Files/WinBUGS14');
+		'Bugdir', bugsFolder);
          
 disp('DIC for seed type only')         
-disp(x1stats.DIC.total)
+%disp(x1stats.DIC.total)
+disp(x1stats.DIC.S.DIC)
 disp('DIC for root extract type only')
-disp(x2stats.DIC.total)
+disp(x2stats.DIC.S.DIC)
 disp('DIC allowing for both seed and root type WITHOUT an interaction')
-disp(nocovarstats.DIC.total)
+disp(nocovarstats.DIC.S.DIC)
 disp('DIC allowing for both seed and root type with an interaction')
-disp(fullstats.DIC.total)
+disp(fullstats.DIC.S.DIC)
 sprintf('... including both explanatory factors with an interaction term\nincreases model fit as determined by lower DIC values')
 
          

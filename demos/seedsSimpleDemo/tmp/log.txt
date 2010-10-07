@@ -1,0 +1,32 @@
+display(log)
+check(C:/kmurphy/GoogleCode/matbugs/demos/seedsSimpleDemo/seeds_model.txt)
+model is syntactically correct
+data(C:/kmurphy/GoogleCode/matbugs/demos/seedsSimpleDemo/tmp/data.txt)
+data loaded
+compile(3)
+model compiled
+inits(1,C:/kmurphy/GoogleCode/matbugs/demos/seedsSimpleDemo/tmp/init_1.txt)
+chain initialized but other chain(s) contain uninitialized variables
+inits(2,C:/kmurphy/GoogleCode/matbugs/demos/seedsSimpleDemo/tmp/init_2.txt)
+chain initialized but other chain(s) contain uninitialized variables
+refresh(100)
+gen.inits()
+shape parameter (r) of gamma tau too small -- cannot sample
+update(1000)
+command #Bugs:update cannot be executed (is greyed out)
+set(alpha0)
+command #Bugs:set cannot be executed (is greyed out)
+set(alpha1)
+command #Bugs:set cannot be executed (is greyed out)
+set(alpha12)
+command #Bugs:set cannot be executed (is greyed out)
+thin.updater(10)
+update(500)
+command #Bugs:update cannot be executed (is greyed out)
+coda(*,C:/kmurphy/GoogleCode/matbugs/demos/seedsSimpleDemo/tmp/coda)
+command #Bugs:coda cannot be executed (is greyed out)
+stats(*)
+command #Bugs:stats cannot be executed (is greyed out)
+history(*,C:/kmurphy/GoogleCode/matbugs/demos/seedsSimpleDemo/tmp/history.txt)
+command #Bugs:history cannot be executed (is greyed out)
+save(C:/kmurphy/GoogleCode/matbugs/demos/seedsSimpleDemo/tmp/log.txt)

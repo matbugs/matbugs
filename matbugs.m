@@ -580,6 +580,8 @@ for fi=1:length(fld)
   stats.std = setfield(stats.std, fname, squeeze(st_std_overall));
 end
 end
+
+
 %%%%%%%%%%%%
 % Andrew Jackson - function getDICstats added a.jackson@tcd.ie
 % Used to retrieve the DIC statistics from the log file
@@ -639,7 +641,7 @@ while 1
 end
 
 fclose(FIDlog)
-
+end
 
 %%%%%%%%%%%%
 
@@ -706,6 +708,8 @@ for k=1:Nvars
   eval(['S.' outstruct '=samples;']);
 end
 end
+
+
 function T=readfile(filename)
 f=fopen(filename,'r');
 if f==-1, fclose(f); error(filename); end
@@ -719,7 +723,7 @@ while 1
  i=i+1;
 end
 fclose(f);
-
+end
 
 % PROCESS_OPTIONS - Processes options passed to a Matlab function.
 %                   This function provides a simple means of
@@ -781,7 +785,6 @@ fclose(f);
 
 % Copyright (C) 2002 Mark A. Paskin
 % GNU GPL
-end
 function [varargout] = process_options(args, varargin)
 
 % Check the number of input arguments
@@ -837,6 +840,5 @@ if (~warn)
   else
     varargout{nout} = cell(0);
   end
-end
 end
 end

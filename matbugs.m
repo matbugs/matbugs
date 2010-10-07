@@ -85,6 +85,8 @@ function [samples, stats, structArray] = matbugs(dataStruct, bugsModel, varargin
 % Written by Maryam Mahdaviani (maryam@cs.ubc.ca)
 % and Kevin Murphy (murphyk@cs.ubc.ca), August 2005
 
+% Modified by Murphy 7 Oct 2010 to work with matlab 2010b
+% (Added 'end' statements to all nested functions)
 
 [openBUGS, junk] =  process_options(varargin, 'openBUGS', 0);
 

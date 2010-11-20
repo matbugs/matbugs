@@ -50,6 +50,7 @@ for c=1:Nchains
   plot(samples.mu_theta(c,:), colors(c));
 end
 title(sprintf('mu.theta'))
+printPmtkFigure('schools_demo_traceplot')
 
 % Posterior summaries - kernel density estimation
 figure;
@@ -58,16 +59,17 @@ for j=1:8
   %dat = samples.theta(:,:,j);
   for c=1:Nchains
     [p, x] = ksdensity(samples.theta(c,:,j));
-    plot(x, p, colors(c));
+    plot(x, p, colors(c), 'linewidth', 2);
   end
   title(sprintf('theta %d', j));
 end
 subplot(3,3,9); hold on
 for c=1:Nchains
   [p, x] = ksdensity(samples.mu_theta(c,:));
-  plot(x, p, colors(c));
+  plot(x, p, colors(c), 'linewidth', 2);
 end
 title(sprintf('mu.theta'))
+printPmtkFigure('schools_ksd')
 
 % Posterior summaries - intervals
 figure;
@@ -95,3 +97,5 @@ for i=1:j
   text(xlim(1), i, legendstr{i});
 end
 title('80pc posterior intervals (*=median)')
+printPmtkFigure('schools_intervals')
+

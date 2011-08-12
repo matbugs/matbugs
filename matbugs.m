@@ -271,11 +271,11 @@ end
 fclose(fid);
 
 
-%calling WinBUGS and passing the script to it
-% File name fix by Sohrab Shah 28 Nov 2006
+
 if openBUGS
- f = fullfile(Bugdir, 'winbugs.exe');
- %str = ['"', Bugdir, '\winbugs.exe" /PAR script.txt'];
+    % bug fix by Chris Moore christopher.moore@unsw.edu.au
+    f = fullfile(Bugdir, 'OpenBUGS.exe');   
+ %f = fullfile(Bugdir, 'winbugs.exe');
 else
  % fix for wine Misha Koshelev 26 Nov 2009
  if wine

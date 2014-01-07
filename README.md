@@ -17,18 +17,18 @@ Written by Kevin Murphy and Maryam Mahdaviani, August 2005.
 <a href="https://github.com/matbugs/matbugs/blob/master/matbugs.m">matbugs.m</a> is the only file you need.
 However, there are several demos that show how to use matbugs that are worth downloading too.
 Just press the 'download ZIP' button on github, or type `git clone https://github.com/matbugs/matbugs.git'.
- T
+
 
 *Usage* 
 
 Here is a basic example of how to use matbugs:
 
-  [samples, stats] = matbugs(dataStruct, modelFileName, ...
-		'init', initStructs, ...
-		'view', 1, 'nburnin', 1000, 'nsamples', 500, ...
-		'thin', 10, ...
-		'monitorParams', {'theta', 'mu_theta', 'sigma_theta'}, ...
-		'Bugdir', 'C:/Program Files/WinBUGS14');
+   `[samples, stats] = matbugs(dataStruct, modelFileName, 
+        		'init', initStructs,
+	        	'view', 1, 'nburnin', 1000, 'nsamples', 500, 
+		        'thin', 10, 
+	        	'monitorParams', {'theta', 'mu_theta', 'sigma_theta'},
+	        	'Bugdir', 'C:/Program Files/WinBUGS14');`
 
 You can see that optional arguments are passed in the form 'name', value.
 To use openbugs, pass in the arguments `'openbugs', 1`.
